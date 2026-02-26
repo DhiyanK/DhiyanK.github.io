@@ -634,18 +634,26 @@ body.professional-theme .interactive-terminal {
 
 @media (max-width: 768px) {
     header {
+        position: relative;
         flex-direction: column;
-        align-items: flex-start;
-        padding: 10px 5%;
+        align-items: center;
+        padding: 15px 5%;
+        gap: 12px;
     }
 
     nav {
         width: 100%;
-        justify-content: flex-start;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    nav a {
+        font-size: 0.85rem;
+        padding: 6px 10px;
     }
 
     main {
-        padding: 165px 5% 50px;
+        padding: 30px 5% 50px;
     }
 
     .terminal-window,

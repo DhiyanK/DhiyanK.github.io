@@ -69,10 +69,10 @@ function applyTheme(theme, button) {
         return;
     }
 
-    button.textContent = isProfessional ? "Mode: Hacker" : "Mode: Pro";
+    button.textContent = isProfessional ? "Dark Mode" : "Light Mode";
     button.setAttribute(
         "aria-label",
-        isProfessional ? "Switch to hacker mode" : "Switch to professional mode"
+        isProfessional ? "Switch to dark mode" : "Switch to light mode"
     );
     button.setAttribute("aria-pressed", String(isProfessional));
 }
