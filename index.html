@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <title>Dhiyan Muhammed | Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <canvas id="matrix"></canvas>
+
+    <header>
+        <h3>[DHIYAN v1.0]</h3>
+        <nav>
+            <a href="index.html" class="active">~/home</a>
+            <a href="about.html">~/about</a>
+            <a href="projects.html">~/projects</a>
+            <a href="certs.html">~/certs</a>
+            <a href="contact.html">~/contact</a>
+            <button id="themeToggle" class="theme-btn" type="button" aria-label="Toggle theme mode">Mode</button>
+            <a href="cv.pdf" class="cv-btn" download>Download CV</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="terminal-window">
+            <div class="terminal-header">
+                System Time: <span id="time"></span> | User: root | Access Level: Administrator
+            </div>
+
+            <p><span class="prompt"></span><span class="cmd">whoami --verbose</span></p>
+            <br>
+
+            <div class="profile-container">
+                <img src="profile.jpg" alt="Dhiyan Muhammed" class="profile-img" id="profileImage">
+            </div>
+            <h1 class="hero-title">DHIYAN MUHAMMED M P</h1>
+            <p>&gt; <strong>Role:</strong> Cybersecurity Professional and Backend Developer</p>
+            <p>&gt; <strong>Status:</strong> BCA Student at Lovely Professional University (Class of 2026)</p>
+            <p>&gt; <strong>Objective:</strong> Penetration testing, API security, and robust backend systems.</p>
+            <br>
+
+            <p><span class="prompt"></span><span class="cmd">cat ./core_stack.txt</span></p>
+            <br>
+            <div class="skills-grid">
+                <div class="skill-item"><span class="skill-mark">PY</span><span class="skill-name">Python</span>
+                </div>
+                <div class="skill-item"><span class="skill-mark">FA</span><span class="skill-name">FastAPI</span>
+                </div>
+                <div class="skill-item"><span class="skill-mark">PT</span><span class="skill-name">Pentesting</span>
+                </div>
+                <div class="skill-item"><span class="skill-mark">C</span><span class="skill-name">C/C++</span></div>
+                <div class="skill-item"><span class="skill-mark">SQL</span><span class="skill-name">SQL</span></div>
+                <div class="skill-item"><span class="skill-mark">SEC</span><span class="skill-name">Offensive
+                        Security</span></div>
+            </div>
+
+            <div class="terminal-only-skills">
+                <p>[+] <strong>Languages:</strong> Python, C/C++, SQL</p>
+                <p>[+] <strong>Frameworks:</strong> FastAPI</p>
+                <p>[+] <strong>Security:</strong> Pentesting, Metasploit, Threat Hunting, File Integrity</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="matrix.js"></script>
+    <script src="home.js"></script>
+    <script src="terminal.js"></script>
+</body>
+
+</html>

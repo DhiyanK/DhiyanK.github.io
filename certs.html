@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <title>Dhiyan Muhammed | Certifications</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <canvas id="matrix"></canvas>
+
+    <header>
+        <h3>[DHIYAN v1.0]</h3>
+        <nav>
+            <a href="index.html">~/home</a>
+            <a href="about.html">~/about</a>
+            <a href="projects.html">~/projects</a>
+            <a href="certs.html" class="active">~/certs</a>
+            <a href="contact.html">~/contact</a>
+            <button id="themeToggle" class="theme-btn" type="button" aria-label="Toggle theme mode">Mode</button>
+            <a href="cv.pdf" class="cv-btn" download>Download CV</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="terminal-window">
+            <p><span class="prompt"></span><span class="cmd">ls -l /usr/local/credentials/</span></p>
+            <br>
+            <p>Verifying cryptographic signatures for credential records...</p>
+        </div>
+
+        <div class="grid">
+            <article class="card card-accent-blue">
+                <h3 class="card-title">&gt; Automate Cybersecurity Tasks with Python</h3>
+                <p class="card-meta">Issued by: Google</p>
+                <p class="card-description">Validated proficiency in Python-based security automation, log analysis,
+                    and systems operations.</p>
+                <a href="https://www.coursera.org/account/accomplishments/records/M99UVMAL1XR4" target="_blank"
+                    rel="noopener noreferrer" class="action-link">[Verify Credential]</a>
+            </article>
+
+            <article class="card card-accent-amber">
+                <h3 class="card-title">&gt; Quick Heal Certified Digital Forensic Investigator</h3>
+                <p class="card-meta">Issued by: Quick Heal</p>
+                <p class="card-description">Coverage includes network defense, malware analysis fundamentals, and
+                    endpoint security operations.</p>
+                <a href="https://lms.quickhealacademy.com/certificates/verification?id=LPU-0000-807073" target="_blank"
+                    rel="noopener noreferrer" class="action-link">[Verify Credential]</a>
+            </article>
+
+            <article class="card card-accent-red">
+                <h3 class="card-title">&gt; CompTIA Network+</h3>
+                <p class="card-meta">Issued by: CompTIA</p>
+                <p class="card-description">Validated mastery of routing, switching, network implementation, and
+                    enterprise troubleshooting processes.</p>
+                <a href="https://www.credly.com/badges/95301a7b-1e96-40e2-8e36-96d5e8138237/linked_in_profile"
+                    target="_blank" rel="noopener noreferrer" class="action-link">[Verify Credential]</a>
+            </article>
+        </div>
+    </main>
+
+    <script src="matrix.js"></script>
+    <script src="terminal.js"></script>
+</body>
+
+</html>

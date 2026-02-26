@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <title>Dhiyan Muhammed | Projects</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <canvas id="matrix"></canvas>
+
+    <header>
+        <h3>[DHIYAN v1.0]</h3>
+        <nav>
+            <a href="index.html">~/home</a>
+            <a href="about.html">~/about</a>
+            <a href="projects.html" class="active">~/projects</a>
+            <a href="certs.html">~/certs</a>
+            <a href="contact.html">~/contact</a>
+            <button id="themeToggle" class="theme-btn" type="button" aria-label="Toggle theme mode">Mode</button>
+            <a href="cv.pdf" class="cv-btn" download>Download CV</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="terminal-window">
+            <p><span class="prompt"></span><span class="cmd">ls -la /var/www/projects/</span></p>
+            <br>
+            <p>Total 4 repositories found.</p>
+            <p>Running secure code quality checks and deployment validations...</p>
+        </div>
+
+        <section class="skills-panel" aria-labelledby="skills-title">
+            <h2 id="skills-title" class="skills-panel-title">Technical Skills</h2>
+            <p class="skills-panel-subtitle">Professional stack used for backend engineering and security-focused
+                delivery.</p>
+            <div class="tech-skill-grid">
+                <div class="tech-skill-box">
+                    <span class="skill-mark">PY</span>
+                    <p class="tech-skill-name">Python</p>
+                    <p class="tech-skill-meta">Backend</p>
+                </div>
+                <div class="tech-skill-box">
+                    <span class="skill-mark">FA</span>
+                    <p class="tech-skill-name">FastAPI</p>
+                    <p class="tech-skill-meta">API Design</p>
+                </div>
+                <div class="tech-skill-box">
+                    <span class="skill-mark">C</span>
+                    <p class="tech-skill-name">C/C++</p>
+                    <p class="tech-skill-meta">Systems</p>
+                </div>
+                <div class="tech-skill-box">
+                    <span class="skill-mark">PT</span>
+                    <p class="tech-skill-name">Pentesting</p>
+                    <p class="tech-skill-meta">Offensive Sec</p>
+                </div>
+                <div class="tech-skill-box">
+                    <span class="skill-mark">MS</span>
+                    <p class="tech-skill-name">Metasploit</p>
+                    <p class="tech-skill-meta">Exploitation</p>
+                </div>
+                <div class="tech-skill-box">
+                    <span class="skill-mark">TH</span>
+                    <p class="tech-skill-name">Threat Hunting</p>
+                    <p class="tech-skill-meta">Analysis</p>
+                </div>
+                <div class="tech-skill-box">
+                    <span class="skill-mark">PG</span>
+                    <p class="tech-skill-name">PostgreSQL</p>
+                    <p class="tech-skill-meta">Relational DB</p>
+                </div>
+                <div class="tech-skill-box">
+                    <span class="skill-mark">MY</span>
+                    <p class="tech-skill-name">MySQL</p>
+                    <p class="tech-skill-meta">Data Layer</p>
+                </div>
+                <div class="tech-skill-box">
+                    <span class="skill-mark">MG</span>
+                    <p class="tech-skill-name">MongoDB</p>
+                    <p class="tech-skill-meta">NoSQL</p>
+                </div>
+                <div class="tech-skill-box">
+                    <span class="skill-mark">DK</span>
+                    <p class="tech-skill-name">Docker</p>
+                    <p class="tech-skill-meta">Containers</p>
+                </div>
+                <div class="tech-skill-box">
+                    <span class="skill-mark">K8</span>
+                    <p class="tech-skill-name">Kubernetes</p>
+                    <p class="tech-skill-meta">Orchestration</p>
+                </div>
+                <div class="tech-skill-box">
+                    <span class="skill-mark">AWS</span>
+                    <p class="tech-skill-name">AWS</p>
+                    <p class="tech-skill-meta">Cloud Infra</p>
+                </div>
+                <div class="tech-skill-box">
+                    <span class="skill-mark">SEC</span>
+                    <p class="tech-skill-name">Security Ops</p>
+                    <p class="tech-skill-meta">Hardening</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="grid">
+            <article class="card">
+                <h3 class="card-title">&gt; AI Shield</h3>
+                <p class="card-meta">Browser Extension | Cybersecurity</p>
+                <p class="card-description">Engineered a security extension designed to detect AI-generated content
+                    and actively block phishing attempts in real time.</p>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="action-link">[View Source]</a>
+            </article>
+
+            <article class="card">
+                <h3 class="card-title">&gt; File Integrity Monitor</h3>
+                <p class="card-meta">Python | SHA256 | JSON</p>
+                <p class="card-description">Developed a script to baseline system files and monitor unauthorized
+                    modifications using cryptographic hashing.</p>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="action-link">[View Source]</a>
+            </article>
+
+            <article class="card">
+                <h3 class="card-title">&gt; Keystroke Auditor</h3>
+                <p class="card-meta">Python | Input Monitoring | Red Team Labs</p>
+                <p class="card-description">Built a controlled keyboard event audit utility to study interception
+                    patterns and OS-level hook behavior in isolated environments.</p>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="action-link">[View Source]</a>
+            </article>
+
+            <article class="card">
+                <h3 class="card-title">&gt; Secure ATM Interface</h3>
+                <p class="card-meta">Python | MySQL | Backend Architecture</p>
+                <p class="card-description">Built a command-line financial system interface and refactored storage from
+                    flat files to a relational database design.</p>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="action-link">[View Source]</a>
+            </article>
+        </div>
+    </main>
+
+    <script src="matrix.js"></script>
+    <script src="terminal.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <title>Dhiyan Muhammed | About</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <canvas id="matrix"></canvas>
+
+    <header>
+        <h3>[DHIYAN v1.0]</h3>
+        <nav>
+            <a href="index.html">~/home</a>
+            <a href="about.html" class="active">~/about</a>
+            <a href="projects.html">~/projects</a>
+            <a href="certs.html">~/certs</a>
+            <a href="contact.html">~/contact</a>
+            <button id="themeToggle" class="theme-btn" type="button" aria-label="Toggle theme mode">Mode</button>
+            <a href="cv.pdf" class="cv-btn" download>Download CV</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="terminal-window">
+            <div class="terminal-header">
+                Executing: /bin/bash --profile
+            </div>
+
+            <p><span class="prompt"></span><span class="cmd">cat /var/log/profile.log | grep "Dhiyan"</span></p>
+            <br>
+            <p class="terminal-label">[BACKGROUND]</p>
+            <p>I am a cybersecurity professional and backend developer currently completing my Bachelor of Computer
+                Applications (BCA) at Lovely Professional University.</p>
+            <br>
+            <p>My approach bridges offensive security and secure software engineering. I focus on understanding
+                vulnerabilities at code level and building resilient backends with Python, FastAPI, and SQL.</p>
+            <br>
+
+            <p class="terminal-label">[CURRENT OPERATIONS]</p>
+            <p>&gt; <strong>Continuous Training:</strong> Active TryHackMe Premium member, regularly running red-team
+                scenarios and refining penetration testing workflows.</p>
+            <p>&gt; <strong>Open Source:</strong> Preparing documentation and contributions for Google Summer of Code
+                (GSoC).</p>
+        </div>
+    </main>
+
+    <script src="matrix.js"></script>
+    <script src="terminal.js"></script>
+</body>
+
+</html>
