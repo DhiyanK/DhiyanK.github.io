@@ -17,19 +17,19 @@
 }
 
 body.professional-theme {
-    --bg-color: #eef4fb;
+    --bg-color: #f8fafc;
     --surface-color: #ffffff;
-    --surface-soft: #f7f9fc;
-    --text-color: #0f172a;
-    --muted-color: #475569;
+    --surface-soft: #f1f5f9;
+    --text-color: #334155;
+    --muted-color: #64748b;
     --heading-color: #0f172a;
-    --accent-color: #0f766e;
-    --accent-strong: #115e59;
-    --border-color: #d6e2ef;
-    --glow-color: rgba(15, 23, 42, 0.08);
-    --prompt-user: #2563eb;
-    --prompt-dir: #64748b;
-    --shadow-color: rgba(15, 23, 42, 0.1);
+    --accent-color: #2563eb;
+    --accent-strong: #1d4ed8;
+    --border-color: #e2e8f0;
+    --glow-color: rgba(37, 99, 235, 0.15);
+    --prompt-user: #dc2626;
+    --prompt-dir: #2563eb;
+    --shadow-color: rgba(15, 23, 42, 0.08);
 }
 
 * {
@@ -271,27 +271,36 @@ body.professional-theme .skills-grid {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    padding: 14px 12px;
+    gap: 12px;
+    padding: 16px 14px;
     border: 1px solid var(--border-color);
-    border-radius: 10px;
+    border-radius: 12px;
     background: var(--surface-soft);
     color: var(--text-color);
     font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-.skill-mark {
+.skill-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px -10px var(--shadow-color);
+    border-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
+}
+
+.skill-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 34px;
-    height: 34px;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-    background: color-mix(in srgb, var(--accent-color) 18%, transparent);
-    color: var(--heading-color);
-    font-size: 0.8rem;
-    font-weight: 700;
+    font-size: 1.8rem;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.skill-item:hover .skill-icon {
+    transform: scale(1.15) rotate(5deg);
+}
+
+body.professional-theme .skill-icon {
+    filter: drop-shadow(0 4px 6px var(--glow-color));
 }
 
 .skills-panel {
