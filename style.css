@@ -36,8 +36,8 @@ body.professional-theme {
     --border-strong: rgba(37, 99, 235, 0.35);
     --glow-color: rgba(37, 99, 235, 0.16);
     --glow-strong: rgba(15, 118, 110, 0.14);
-    --prompt-user: #dc2626;
-    --prompt-dir: #2563eb;
+    --prompt-user: #166534;
+    --prompt-dir: #15803d;
     --shadow-color: rgba(15, 23, 42, 0.12);
     --scanline: rgba(148, 163, 184, 0.08);
 }
@@ -90,13 +90,11 @@ body::before {
 }
 
 body::after {
-    background: repeating-linear-gradient(
-        180deg,
-        transparent 0,
-        transparent 3px,
-        var(--scanline) 4px,
-        transparent 5px
-    );
+    background: repeating-linear-gradient(180deg,
+            transparent 0,
+            transparent 3px,
+            var(--scanline) 4px,
+            transparent 5px);
     opacity: 0.38;
     z-index: -2;
 }
@@ -115,7 +113,8 @@ canvas#matrix {
 }
 
 body.professional-theme canvas#matrix {
-    display: none;
+    display: block;
+    opacity: 0.12;
 }
 
 img,
@@ -137,24 +136,18 @@ input {
     pointer-events: none;
 }
 
-.brand-badge {
-    position: fixed;
-    top: 22px;
-    left: 24px;
+.island-brand {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 14px;
-    border: 1px solid var(--border-color);
-    border-radius: 999px;
-    background: color-mix(in srgb, var(--surface-pill) 88%, transparent);
+    font-weight: 800;
     color: var(--heading-color);
     text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    box-shadow: 0 16px 34px -22px var(--shadow-color);
-    backdrop-filter: blur(14px);
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+    padding-right: 16px;
+    border-right: 1px solid rgba(148, 163, 184, 0.2);
+    margin-right: 4px;
+    flex-shrink: 0;
     pointer-events: auto;
 }
 
@@ -166,9 +159,9 @@ input {
     display: flex;
     align-items: center;
     gap: 12px;
-    width: min(700px, calc(100vw - 4rem));
-    max-width: 700px;
-    padding: 12px 32px;
+    width: fit-content;
+    max-width: 95vw;
+    padding: 10px 24px;
     border: 1px solid var(--border-strong);
     border-radius: 999px;
     background: color-mix(in srgb, var(--surface-pill) 90%, transparent);
@@ -176,8 +169,17 @@ input {
         0 20px 40px -22px var(--shadow-color),
         0 0 0 1px rgba(255, 255, 255, 0.02),
         0 0 24px -12px var(--glow-color);
-    backdrop-filter: blur(18px);
+    backdrop-filter: blur(24px);
     pointer-events: auto;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, width 0.3s ease;
+}
+
+.dynamic-island:hover {
+    transform: translateX(-50%) scale(1.02);
+    box-shadow:
+        0 24px 48px -20px var(--shadow-color),
+        0 0 0 1px rgba(255, 255, 255, 0.05),
+        0 0 32px -8px var(--glow-strong);
 }
 
 .dynamic-island::before {
@@ -279,9 +281,15 @@ input {
 }
 
 .cv-btn {
-    color: #f8fafc;
-    background: linear-gradient(135deg, var(--accent-color), var(--accent-strong));
+    color: #020617;
+    background: var(--accent-color);
     border-color: transparent;
+    box-shadow: 0 0 12px -2px var(--glow-color);
+}
+
+.cv-btn:hover {
+    background: var(--accent-strong);
+    color: #020617;
 }
 
 .theme-btn:hover,
@@ -315,7 +323,7 @@ main {
     padding: 130px 2rem 42px;
 }
 
-main > * + * {
+main>*+* {
     margin-top: 24px;
 }
 
@@ -350,13 +358,11 @@ main > * + * {
     content: "";
     position: absolute;
     inset: 0;
-    background: repeating-linear-gradient(
-        180deg,
-        transparent 0,
-        transparent 10px,
-        rgba(148, 163, 184, 0.03) 11px,
-        transparent 12px
-    );
+    background: repeating-linear-gradient(180deg,
+            transparent 0,
+            transparent 10px,
+            rgba(148, 163, 184, 0.03) 11px,
+            transparent 12px);
     opacity: 0.5;
     pointer-events: none;
 }
@@ -595,6 +601,46 @@ main > * + * {
 .contact-grid {
     margin-top: 22px;
     grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.contact-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    padding: 24px 0;
+}
+
+.contact-copy {
+    flex: 1;
+}
+
+.contact-title {
+    color: var(--heading-color);
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+}
+
+.contact-desc {
+    color: var(--text-color);
+    font-size: 1.05rem;
+    max-width: 48ch;
+}
+
+.contact-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex-shrink: 0;
+    min-width: 220px;
+}
+
+.contact-actions .cv-btn,
+.contact-actions .terminal-button {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 20px;
+    font-size: 1.05rem;
 }
 
 .closing-command {
@@ -907,6 +953,7 @@ body.fade-out {
 }
 
 @keyframes blink {
+
     0%,
     100% {
         opacity: 1;
@@ -957,10 +1004,8 @@ body.fade-out {
 }
 
 @media (max-width: 950px) {
-    .brand-badge {
-        top: 86px;
-        left: 50%;
-        transform: translateX(-50%);
+    .island-brand {
+        display: none;
     }
 
     main {
@@ -1069,6 +1114,15 @@ body.fade-out {
         grid-template-columns: 1fr;
     }
 
+    .contact-area {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .contact-actions {
+        width: 100%;
+    }
+
     .hero-title {
         font-size: clamp(1.8rem, 10vw, 2.6rem);
     }
@@ -1080,12 +1134,6 @@ body.fade-out {
 }
 
 @media (max-width: 560px) {
-    .brand-badge {
-        top: 82px;
-        font-size: 0.82rem;
-        padding: 9px 12px;
-    }
-
     main {
         padding-top: 144px;
     }
