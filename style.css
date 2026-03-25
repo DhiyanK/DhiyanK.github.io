@@ -1012,7 +1012,9 @@ body.fade-out {
 
 @media (max-width: 950px) {
     .island-brand {
-        display: none;
+        display: inline-flex;
+        border-right: none;
+        padding-right: 0;
     }
 
     main {
@@ -1038,8 +1040,23 @@ body.fade-out {
 @media (max-width: 768px) {
     .dynamic-island {
         top: 18px;
-        width: min(420px, calc(100vw - 24px));
-        padding: 10px;
+        width: calc(100vw - 24px);
+        max-width: 420px;
+        padding: 8px 12px;
+        gap: 8px;
+        justify-content: space-between;
+    }
+
+    .island-brand {
+        font-size: 0.8rem;
+        padding-right: 8px;
+        margin-right: 0;
+    }
+
+    .theme-btn,
+    .cv-btn {
+        padding: 8px 12px;
+        font-size: 0.75rem;
     }
 
     .island-toggle {
