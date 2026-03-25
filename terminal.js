@@ -47,45 +47,7 @@ function initializeThemeToggle() {
 }
 
 function initializeFloatingNav() {
-    const island = document.querySelector("[data-island]");
-    const toggle = document.querySelector("[data-island-toggle]");
-    const navLinks = document.querySelectorAll(".site-nav a");
-
-    if (!island || !toggle) {
-        return;
-    }
-
-    const closeMenu = () => {
-        island.classList.remove("nav-open");
-        toggle.setAttribute("aria-expanded", "false");
-    };
-
-    const toggleMenu = () => {
-        const shouldOpen = !island.classList.contains("nav-open");
-        island.classList.toggle("nav-open", shouldOpen);
-        toggle.setAttribute("aria-expanded", String(shouldOpen));
-    };
-
-    toggle.addEventListener("click", (event) => {
-        event.stopPropagation();
-        toggleMenu();
-    });
-
-    navLinks.forEach((link) => {
-        link.addEventListener("click", closeMenu);
-    });
-
-    document.addEventListener("click", (event) => {
-        if (!island.contains(event.target)) {
-            closeMenu();
-        }
-    });
-
-    window.addEventListener("resize", () => {
-        if (window.innerWidth > 768) {
-            closeMenu();
-        }
-    });
+    // Floating toggle navigation is disabled. Bottom navigation bar is always visible on mobile.
 }
 
 function initializeRevealAnimations() {
@@ -478,7 +440,7 @@ function appendOutput(historyContainer, lines, isError = false) {
     });
 
     historyContainer.appendChild(wrapper);
-    window.scrollTo(0, document.body.scrollHeight);
+    wrapper.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 
 function getCurrentPage() {
