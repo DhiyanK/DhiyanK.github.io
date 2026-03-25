@@ -22,6 +22,8 @@ const MAX_COMMAND_LENGTH = 200;
 
 document.addEventListener("DOMContentLoaded", () => {
     initializeThemeToggle();
+    initializeFloatingNav();
+    initializeRevealAnimations();
     initializeTerminal();
 });
 
@@ -42,6 +44,83 @@ function initializeThemeToggle() {
         applyTheme(nextTheme, button);
         setStoredTheme(nextTheme);
     });
+}
+
+function initializeFloatingNav() {
+    const island = document.querySelector("[data-island]");
+    const toggle = document.querySelector("[data-island-toggle]");
+    const navLinks = document.querySelectorAll(".site-nav a");
+
+    if (!island || !toggle) {
+        return;
+    }
+
+    const closeMenu = () => {
+        island.classList.remove("nav-open");
+        toggle.setAttribute("aria-expanded", "false");
+    };
+
+    const toggleMenu = () => {
+        const shouldOpen = !island.classList.contains("nav-open");
+        island.classList.toggle("nav-open", shouldOpen);
+        toggle.setAttribute("aria-expanded", String(shouldOpen));
+    };
+
+    toggle.addEventListener("click", (event) => {
+        event.stopPropagation();
+        toggleMenu();
+    });
+
+    navLinks.forEach((link) => {
+        link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("click", (event) => {
+        if (!island.contains(event.target)) {
+            closeMenu();
+        }
+    });
+
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 768) {
+            closeMenu();
+        }
+    });
+}
+
+function initializeRevealAnimations() {
+    const revealTargets = document.querySelectorAll("[data-reveal], .project-grid .card, .footer-links .social-button");
+    if (revealTargets.length === 0) {
+        return;
+    }
+
+    revealTargets.forEach((element) => {
+        element.classList.add("reveal-ready");
+    });
+
+    if (!("IntersectionObserver" in window)) {
+        revealTargets.forEach((element) => element.classList.add("is-visible"));
+        return;
+    }
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) {
+                    return;
+                }
+
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+            });
+        },
+        {
+            threshold: 0.15,
+            rootMargin: "0px 0px -10% 0px"
+        }
+    );
+
+    revealTargets.forEach((element) => observer.observe(element));
 }
 
 function resolveInitialTheme(rawTheme) {
@@ -306,7 +385,7 @@ function buildTerminalUI() {
 
     const helper = document.createElement("div");
     helper.className = "helper-text";
-    helper.textContent = "[Hint: Type commands or use the navigation menu above]";
+    helper.textContent = "[Hint: Type commands or use the floating island nav]";
 
     commandLine.appendChild(prompt);
     commandLine.appendChild(input);
