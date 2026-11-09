@@ -10,10 +10,13 @@
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <title>Dhiyan Muhammed | Home</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cyber.css">
+    <meta name="description" content="Dhiyan Muhammed M P — cybersecurity professional and backend developer. Explore security projects, technical skills, and an interactive command terminal.">
 </head>
 
 <body class="page-home">
-    <canvas id="matrix"></canvas>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <canvas id="matrix" aria-hidden="true"></canvas>
 
     <header class="site-header">
         <div class="dynamic-island" data-island>
@@ -70,8 +73,32 @@
         </div>
     </header>
 
-    <main>
-        <section class="terminal-window hero-window" data-reveal>
+    <main id="main-content">
+        <section class="cyber-hero" aria-labelledby="cyber-title">
+            <div class="hero-eyebrow"><span><i class="status-dot"></i> CYBERSECURITY / BACKEND ENGINEERING</span><span>PORTFOLIO — 2026</span></div>
+            <h1 id="cyber-title" class="mega-name">DHIYAN<span class="name-period">.</span></h1>
+            <div class="hero-stage">
+                <div class="hero-statement">
+                    <p class="eyebrow">THINK LIKE AN ATTACKER. BUILD LIKE AN ENGINEER.</p>
+                    <h2>Break the pattern.<br>Secure the <em>future.</em></h2>
+                    <p class="stage-description">I'm Dhiyan Muhammed M P. I explore vulnerabilities, engineer resilient backends, and turn curiosity into secure systems.</p>
+                    <div class="hero-actions"><a class="primary-action" href="projects.html">Explore my work <span>↗</span></a><a class="text-action" href="#identity">Open terminal <span>↓</span></a></div>
+                    <div class="availability-line"><i class="status-dot"></i> Open to opportunities & collaborations</div>
+                </div>
+                <div class="core-scene">
+                    <div class="scene-grid" aria-hidden="true"></div>
+                    <canvas id="security-core" aria-hidden="true"></canvas>
+                    <div class="core-label"><span>FIG. 01 / SECURITY CORE</span><span class="core-coordinate">[ X · Y · Z ]</span></div>
+                    <button class="motion-control" id="motion-control" type="button" aria-pressed="false" aria-label="Pause 3D animation">Pause motion <span>Ⅱ</span></button>
+                    <span class="scene-caption" aria-hidden="true">DEFENSE IN DEPTH</span>
+                </div>
+            </div>
+            <div class="hero-bottom"><span>01 / EXPLORE THE SYSTEM</span><span>SCROLL TO DISCOVER ↓</span></div>
+        </section>
+        <div class="stack-ribbon" aria-label="Core technologies"><span>PYTHON</span><b>✳</b><span>FASTAPI</span><b>✳</b><span>LINUX</span><b>✳</b><span>API SECURITY</span><b>✳</b><span>PENTESTING</span></div>
+        <div class="section-heading"><div><p class="eyebrow">01 / THE OPERATOR</p><h2>Curiosity. With a command line.</h2></div><a class="text-action" href="about.html">About me ↗</a></div>
+
+        <section class="terminal-window hero-window" id="identity" aria-label="Profile and interactive terminal" data-reveal>
             <div class="terminal-header">
                 System Time: <span id="time"></span> | User: root | Access Level: Administrator
             </div>
@@ -85,7 +112,7 @@
 
                 <div class="hero-copy">
                     <p class="hero-command"><span class="prompt"></span><span class="cmd">whoami --verbose</span></p>
-                    <h1 class="hero-title">DHIYAN MUHAMMED M P</h1>
+                    <h2 class="hero-title">DHIYAN MUHAMMED M P</h2>
                     <p class="hero-role-line"><span id="typedRole"
                             data-role="Cybersecurity Professional and Backend Developer"></span><span
                             class="typing-caret" aria-hidden="true"></span></p>
@@ -108,16 +135,16 @@
                     <p>[+] <strong>Security Focus:</strong> Pentesting, Cybersecurity Tools</p>
                 </div>
             </div>
-            </div>
         </section>
 
+        <div class="section-heading"><div><p class="eyebrow">02 / SELECTED WORK</p><h2>Built to solve. Designed to defend.</h2></div><a class="text-action" href="projects.html">All projects ↗</a></div>
         <section class="terminal-window projects-window" data-reveal>
             <div class="terminal-header">
                 <span class="prompt"></span><span class="cmd">ls -la /portfolio/projects</span>
             </div>
             <div class="project-grid">
                 <article class="card project-card card-accent-blue">
-                    <h3 class="card-title">&gt; AI Shield</h3>
+                    <div class="project-art" aria-hidden="true"><svg viewBox="0 0 300 180"><path d="M150 28 215 52v46c0 31-32 52-65 66-33-14-65-35-65-66V52Z"/><path d="m120 93 20 20 42-44"/><circle cx="150" cy="95" r="77"/></svg></div><h3 class="card-title">AI Shield</h3>
                     <p class="card-description">Engineered a security extension designed to detect AI-generated content
                         and actively block phishing attempts in real time.</p>
                     <div class="tag-list">
@@ -129,7 +156,7 @@
                 </article>
 
                 <article class="card project-card card-accent-red">
-                    <h3 class="card-title">&gt; Keystroke Auditor</h3>
+                    <div class="project-art" aria-hidden="true"><svg viewBox="0 0 300 180"><rect x="45" y="45" width="210" height="95" rx="5"/><path d="M65 67h170M65 87h170M65 107h170M90 57v61m30-61v61m30-61v61m30-61v61m30-61v61M105 128h90"/></svg></div><h3 class="card-title">Keystroke Auditor</h3>
                     <p class="card-description">Built a controlled keyboard event audit utility to study interception
                         patterns and OS-level hook behavior in isolated environments.</p>
                     <div class="tag-list">
@@ -141,7 +168,7 @@
                 </article>
 
                 <article class="card project-card card-accent-amber">
-                    <h3 class="card-title">&gt; Secure ATM Interface</h3>
+                    <div class="project-art" aria-hidden="true"><svg viewBox="0 0 300 180"><ellipse cx="150" cy="45" rx="69" ry="22"/><path d="M81 45v88c0 30 138 30 138 0V45M81 89c0 30 138 30 138 0"/><path d="m134 97 12 12 25-26"/></svg></div><h3 class="card-title">Secure ATM Interface</h3>
                     <p class="card-description">Built a command-line financial system interface and refactored storage
                         from flat files to a relational database design.</p>
                     <div class="tag-list">
@@ -217,6 +244,7 @@
     <script src="matrix.js"></script>
     <script src="home.js"></script>
     <script src="terminal.js"></script>
+    <script src="cyber.js"></script>
 </body>
 
 </html>

@@ -10,10 +10,13 @@
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <title>Dhiyan Muhammed | Contact</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cyber.css">
+    <meta name="description" content="Dhiyan Muhammed M P — cybersecurity professional and backend developer. Explore security projects, technical skills, and an interactive command terminal.">
 </head>
 
 <body class="page-contact">
-    <canvas id="matrix"></canvas>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <canvas id="matrix" aria-hidden="true"></canvas>
 
     <header class="site-header">
         <div class="dynamic-island" data-island>
@@ -70,7 +73,8 @@
         </div>
     </header>
 
-    <main>
+    <main id="main-content">
+<section class="page-intro"><p class="eyebrow">THE CONNECTION</p><h1>Let’s build something secure.</h1><p>Have an opportunity, an idea, or a security challenge? Let’s connect.</p></section>
         <section class="terminal-window content-window" data-reveal>
             <p class="section-command"><span class="prompt"></span><span class="cmd">./establish_connection.sh
                     --secure</span></p>
@@ -148,6 +152,7 @@
 
     <script src="matrix.js"></script>
     <script src="terminal.js"></script>
+    <script src="cyber.js"></script>
 </body>
 
 </html>
