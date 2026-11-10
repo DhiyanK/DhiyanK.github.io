@@ -12,3 +12,93 @@ main{max-width:1440px;padding:118px 56px 64px}main>*+*{margin-top:32px}.site-hea
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal-ready.is-visible,.profile-img{animation:none;opacity:1}.project-card,.project-art svg,.primary-action{transition:none}.project-card:hover,.project-card:hover .project-art svg{transform:none}}
 /* Keep the fixed mobile dock relative to the viewport, not its header. */
 @media(max-width:768px){.site-header{backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--bg-color)}.dynamic-island{backdrop-filter:none;-webkit-backdrop-filter:none}}
+
+/* Restrained scroll entrances replace the original timed reveal animation. */
+.scroll-choreography .reveal-ready,
+.scroll-choreography .reveal-ready.is-visible {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    transition: border-color .35s ease, box-shadow .45s ease;
+}
+.motion-card {
+    position: relative;
+    transition: transform .55s cubic-bezier(.2,.75,.25,1),
+                border-color .35s ease, box-shadow .55s ease;
+}
+.motion-card:focus-within {
+    border-color: var(--accent-color);
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .motion-card:hover,
+    .scroll-choreography .project-card:hover {
+        transform: perspective(1000px) translateY(-6px) rotateX(1.5deg);
+        border-color: color-mix(in srgb, var(--accent-color) 65%, var(--border-color));
+        box-shadow: 0 18px 38px -26px var(--shadow-color),
+                    0 0 24px -12px var(--glow-color);
+        transition: transform .55s cubic-bezier(.2,.75,.25,1),
+                    border-color .35s ease, box-shadow .55s ease;
+    }
+    .project-card .project-art svg {
+        transition: transform .8s cubic-bezier(.2,.75,.25,1);
+    }
+    .project-card:hover .project-art svg {
+        transform: perspective(800px) rotateY(-5deg) rotateX(3deg) scale(1.04);
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .motion-card, .scroll-choreography .reveal-ready { transition: none; }
+    .motion-card:hover, .project-card:hover { transform: none; }
+}
+
+/* The existing Security Core becomes a short, native-scroll story. */
+.story-track { position: relative; }
+.story-active .story-track { height: calc(650px + 85vh); }
+.story-active .hero-stage {
+    position: sticky;
+    top: 86px;
+    min-height: min(650px, calc(100svh - 110px));
+}
+.story-active .core-scene { height: min(580px, calc(100svh - 150px)); }
+.story-active #security-core, .story-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+}
+.core-scene .motion-control, .core-label, .scene-caption { z-index: 6; }
+.story-progress { position: absolute; bottom: 5px; left:24px; right:0; height:1px; background:var(--border-color); }
+.story-progress span { display:block; height:100%; background:var(--accent-color); transform:scaleX(0); transform-origin:left; }
+.credential-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
+.credential-tile { position:relative; background:var(--surface-color); border:1px solid var(--border-color); border-radius:8px; padding:30px; display:flex; flex-direction:column; min-height:270px; }
+.credential-index { font-size:9px; letter-spacing:1px; color:var(--accent-color); }
+.credential-tile h3 { font:500 27px/1.15 Arial,sans-serif; color:var(--heading-color); margin:28px 0 14px; letter-spacing:-.7px; }
+.credential-tile p { font:13px/1.7 Arial,sans-serif; color:var(--muted-color); margin-bottom:24px; }
+.credential-tile a { font-size:10px; color:var(--heading-color); margin-top:auto; text-decoration:none; }
+.credential-tile a:hover { color:var(--accent-color); }
+.story-reduced .story-progress { display:none; }
+@media(max-width:768px) {
+    .story-active .story-track { height:calc(710px + 55svh); }
+    .story-active .hero-stage { top:78px; min-height:0; }
+    .story-active .core-scene { height:310px; }
+    .story-active .hero-statement { padding-top:16px; }
+    .story-active .stage-description { margin:14px 0; }
+    .story-active .availability-line { margin-top:14px; }
+    .story-active .hero-statement h2 { font-size:32px; }
+    .story-progress { left:0; }
+    .credential-grid { grid-template-columns:1fr; }
+    .credential-tile { min-height:225px; padding:25px; }
+}
+@media(max-height:700px) {
+    .story-active .story-track { height:auto; }
+    .story-active .hero-stage { position:relative; top:0; }
+    .story-active .core-scene { height:340px; }
+}
+@media(prefers-reduced-motion:reduce) {
+    .story-active .story-track { height:auto; }
+    .story-active .hero-stage { position:relative; top:0; }
+}
+.core-fallback { position:absolute; inset:35% 0 auto; text-align:center; font:700 42px Arial,sans-serif; color:var(--accent-color); letter-spacing:3px; }
+.core-fallback small { font:9px monospace; letter-spacing:1px; }
