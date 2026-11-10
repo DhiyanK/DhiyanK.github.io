@@ -22,10 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const progressLine = document.querySelector('.story-progress span');
   const stopEvents = new AbortController();
   const options = { signal: stopEvents.signal, passive: true };
-  const groupSelectors = ['#identity', '.projects-window .project-card', '.credential-tile', '.contact-window'];
+  const groupSelectors = ['.projects-window .project-card', '.skill-node', '#identity', '.contact-window'];
   const groups = groupSelectors.map(selector => [...document.querySelectorAll(selector)]);
   const protectedElements = [...document.querySelectorAll('.hero-statement, .section-heading, .hero-bottom, .stack-ribbon, .terminal-window:not(.projects-window), .project-card, .credential-tile, .site-footer, .core-label, .scene-caption, .motion-control')];
-  const anchors = ['#identity', '.projects-window', '.credential-grid', '.contact-window'].map(selector => document.querySelector(selector));
+  const anchors = ['.projects-window', '.skill-network', '#identity', '.contact-window'].map(selector => document.querySelector(selector));
   let simple = reduced.matches, userReduced = false;
   let w = 0, h = 0, ratio = 1, frame = 0, lastFrame = 0, idle = 0, pointerX = 0, pointerY = 0;
   let geometry, dirty = true, destroyed = false, currentPhase = -1;
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (short.matches) p = clamp(-r.top / Math.max(1,r.height*.8));
     geometry = {
       r, p: simple ? 0 : p,
-      groups: groups.map(group=>group.map(e=>e.getBoundingClientRect())),
+      groups: groupSelectors.map(selector=>[...document.querySelectorAll(selector)].map(e=>e.getBoundingClientRect())),
       anchors: anchors.map(e=>e?.getBoundingClientRect().top ?? Infinity),
       protectedRects:protectedElements.map(e=>e.getBoundingClientRect()).filter(r=>r.bottom>0&&r.top<h),
       light:document.body.classList.contains('professional-theme')
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
     faces.forEach((face,i)=>{ctx.beginPath();face.forEach((v,j)=>j?ctx.lineTo(vertices[v][0],vertices[v][1]):ctx.moveTo(vertices[v][0],vertices[v][1]));ctx.closePath();ctx.fillStyle=`rgba(${rgb},${(.04+i*.012)*alpha})`;ctx.fill();ctx.strokeStyle=`rgba(${rgb},${alpha*.42})`;ctx.stroke();});
   }
   function drawName(a,b,zoom,alpha,rgb) {
-    if(alpha<.01)return;
+    if(alpha<.01||document.body.classList.contains('webgl-name-ready'))return;
     const letters='DHIYAN';
     for(let i=0;i<letters.length;i++){
       const x=(i-2.5)*.185;
@@ -147,6 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Idle motion fades out before fragmentation so reverse scrolling follows the same path.
     const a=-.32+(simple?0:Math.sin(idle*.22)*.48*(1-smooth(0,.18,p)))+p*.9+pointerX*.15*(1-breakApart);
     const b=.55+pointerY*.12*(1-breakApart),zoom=1+smooth(0,.25,p)*.14;
+    document.dispatchEvent(new CustomEvent('core-frame',{detail:{p,a,pointerX,pointerY,simple}}));
     if(r.bottom>0&&r.top<h){
       const glow=ctx.createRadialGradient(r.left+r.width/2,r.top+r.height/2,0,r.left+r.width/2,r.top+r.height/2,r.height*.5);
       glow.addColorStop(0,`rgba(${rgb},${.07*(1-form)})`);glow.addColorStop(1,`rgba(${rgb},0)`);ctx.fillStyle=glow;ctx.fillRect(r.left,r.top,r.width,r.height);

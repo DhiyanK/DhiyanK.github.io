@@ -135,7 +135,7 @@ function setStoredTheme(theme) {
 }
 
 function initializeTerminal() {
-    const mainTerminal = document.querySelector("main .terminal-window");
+    const mainTerminal = document.querySelector("#identity") || document.querySelector("main .terminal-window");
     if (!mainTerminal || mainTerminal.querySelector(".interactive-terminal")) {
         return;
     }
